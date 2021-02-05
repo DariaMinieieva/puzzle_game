@@ -77,4 +77,5 @@ board_to_check = [
  "  2  ****"
 ]
 
-print(validate_board(board_to_check))
+if __name__ == "__main__":
+    print(validate_board(board_to_check))
