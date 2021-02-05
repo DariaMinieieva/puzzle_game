@@ -1,5 +1,7 @@
 '''
 This module checks if board is valid
+
+Link to GitHub: https://github.com/DariaMinieieva/puzzle_game
 '''
 
 def check_row(board: list) -> bool:
