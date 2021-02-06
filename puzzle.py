@@ -7,6 +7,13 @@ Link to GitHub: https://github.com/DariaMinieieva/puzzle_game
 def check_row(board: list) -> bool:
     '''
     Check if rows are valid
+
+    >>> check_row(["**** ****", "***1 ****", "**  3****", "* 4 1****",\
+                   "     9 5 ", " 6  83  *", "3   1  **", "  8  2***", "  2  ****"])
+    True
+    >>> check_row(["**** ****", "***1 ****", "**  3****", "* 4 1****",\
+                   "     9 5 ", " 6  63  *", "3   1  **", "  8  2***", "  2  ****"])
+    False
     '''
     for i in board:
         row = set(list(i))
@@ -22,6 +29,13 @@ def check_row(board: list) -> bool:
 def check_column(board: list) -> bool:
     '''
     Check if columns are valid
+
+    >>> check_column(["**** ****", "***1 ****", "**  3****", "* 4 1****",\
+                   "     9 5 ", " 6  83  *", "3   1  **", "  8  2***", "  2  ****"])
+    False
+    >>> check_column(["**** ****", "***1 ****", "**  3****", "* 4 1****",\
+                   "     9 5 ", " 6  83  *", "3      **", "  8  2***", "  2  ****"])
+    True
     '''
     reverse_board = [[0 for i in range(len(board))] for j in range(len(board[0]))]
 
@@ -37,6 +51,13 @@ def check_column(board: list) -> bool:
 def check_colour_block(board: list) -> bool:
     '''
     Check if coloured blocks are valid
+
+    >>> check_colour_block(["**** ****", "***1 ****", "**  3****", "* 4 1****",\
+                   "     9 5 ", " 6  83  *", "3   1  **", "  8  2***", "  2  ****"])
+    True
+    >>> check_colour_block(["**** ****", "***1 ****", "**  3****", "* 4 1****",\
+                   "     9 5 ", " 6  83  *", "3   1  **", "  8  2***", "  3  ****"])
+    False
     '''
     blocks = []
     indexes = [(4,0), (5, 0), (6, 0), (7, 0), (8, 0), (8, 1), (8, 2), (8, 3), (8, 4)]
@@ -54,6 +75,13 @@ def check_colour_block(board: list) -> bool:
 def validate_board(board: list) -> bool:
     '''
     Check if board is valid
+
+    >>> validate_board(["**** ****", "***1 ****", "**  3****", "* 4 1****",\
+                   "     9 5 ", " 6  83  *", "3   1  **", "  8  2***", "  2  ****"])
+    False
+    >>> validate_board(["**** ****", "***1 ****", "**  3****", "* 4 1****",\
+                   "     9 5 ", " 6  83  *", "3      **", "  8  2***", "  2  ****"])
+    True
     '''
 
     rows = check_row(board)
@@ -65,17 +93,6 @@ def validate_board(board: list) -> bool:
 
     return False
 
-board_to_check = [
- "**** ****",
- "***1 ****",
- "**  3****",
- "* 4 1****",
- "     9 5 ",
- " 6  83  *",
- "3   1  **",
- "  8  2***",
- "  2  ****"
-]
-
 if __name__ == "__main__":
-    print(validate_board(board_to_check))
+    import doctest
+    doctest.testmod()
